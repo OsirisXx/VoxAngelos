@@ -47,3 +47,33 @@ body { min-height:100vh; margin:0; background:#f4f6fa; color:var(--admin-ink); f
 .tech-link:hover { color:var(--admin-blue-dark); text-decoration:underline; }
 @media (max-width:860px) { .tech-wrapper { width:min(540px,calc(100% - 32px)); min-height:0; margin:28px auto; } .tech-wrapper .row { display:block!important; min-height:0; } .panel-left { padding:32px!important; } .admin-brand { margin-bottom:29px; } .title { max-width:none; font-size:34px; } .admin-points { display:none; } .panel-right { padding:34px 28px!important; } }
 @media (max-width:480px) { .tech-wrapper { width:100%; margin:0; border-right:0; border-left:0; border-radius:0; } .panel-left { padding:26px 20px!important; } .panel-right { padding:31px 20px!important; } .admin-brand { margin-bottom:25px; } .title { font-size:31px; } .admin-login-form h2 { font-size:27px; } }
+
+
+/* Center the authentication shell in the desktop viewport; let long mobile pages flow from the top. */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+}
+
+.tech-wrapper {
+    margin: 0 auto;
+}
+
+@media (max-width: 860px) {
+    body {
+        align-items: flex-start;
+        padding: 28px 16px;
+    }
+
+    .tech-wrapper {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+}

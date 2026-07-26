@@ -17,6 +17,10 @@
 body {
     min-height: 100vh;
     margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
     background: #f4f6fa;
     color: var(--login-ink);
     font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
@@ -353,4 +357,27 @@ body {
     .portal-brand { margin-bottom: 25px; }
     .portal-title { font-size: 31px; }
     .login-form-panel h2 { font-size: 27px; }
+}
+
+
+/* Center the authentication shell in the desktop viewport; let long mobile pages flow from the top. */
+.tech-wrapper {
+    margin: 0 auto;
+}
+
+@media (max-width: 860px) {
+    body {
+        align-items: flex-start;
+        padding: 28px 16px;
+    }
+
+    .tech-wrapper {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
 }

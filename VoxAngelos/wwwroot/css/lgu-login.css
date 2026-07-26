@@ -309,3 +309,33 @@ body {
     .panel-right > h2 { font-size: 27px !important; }
     .form-footer { align-items: flex-start; flex-direction: column; }
 }
+
+
+/* Center the authentication shell in the desktop viewport; let long mobile pages flow from the top. */
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 32px 24px;
+}
+
+.tech-wrapper {
+    margin: 0 auto;
+}
+
+@media (max-width: 860px) {
+    body {
+        align-items: flex-start;
+        padding: 28px 16px;
+    }
+
+    .tech-wrapper {
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 0;
+    }
+}

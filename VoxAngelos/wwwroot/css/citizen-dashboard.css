@@ -869,3 +869,280 @@
         grid-column: 2;
     }
 }
+
+
+/* Keep leaderboard insights available after the feed on tablet and mobile. */
+@media (max-width: 1000px) {
+    .discover-page .ranking-sidebar {
+        display: block;
+        position: static;
+        margin-top: 18px;
+    }
+
+    .discover-page .ranking-box {
+        padding: 15px;
+    }
+
+    .discover-page .ranking-header {
+        margin-bottom: 10px;
+        padding-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .discover-page .ranking-sidebar {
+        margin-top: 14px;
+    }
+
+    .discover-page .insight-section {
+        padding: 12px;
+    }
+}
+
+
+/* Final Civic treatment for Discover leaderboard insights. The legacy sidebar
+   tokens resolve to white inside the white Civic shell, so these page-scoped
+   values establish the intended contrast explicitly. */
+.discover-page .ranking-sidebar {
+    position: sticky;
+    top: 20px;
+}
+
+.discover-page .ranking-box {
+    padding: 18px;
+    border: 1px solid var(--va-line);
+    border-radius: var(--va-radius);
+    background: var(--va-surface);
+    box-shadow: var(--va-shadow);
+}
+
+.discover-page .ranking-header {
+    align-items: center;
+    margin-bottom: 12px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #e7ebf1;
+}
+
+.discover-page .trophy-icon {
+    color: var(--va-blue);
+}
+
+.discover-page .ranking-title {
+    color: var(--va-ink);
+    font-size: 10px;
+    letter-spacing: .09em;
+}
+
+.discover-page .leaderboard-insights {
+    gap: 10px;
+}
+
+.discover-page .insight-section {
+    padding: 13px;
+    border: 1px solid #e5e9ef;
+    border-radius: 8px;
+    background: var(--va-surface-subtle);
+    box-shadow: none;
+}
+
+.discover-page .insight-label {
+    margin-bottom: 6px;
+    color: var(--va-blue);
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: .08em;
+}
+
+.discover-page .insight-section p,
+.discover-page .insight-help {
+    color: var(--va-body);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+.discover-page .insight-section strong {
+    color: var(--va-ink);
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.discover-page .insight-score {
+    color: var(--va-blue);
+    font-size: 10px;
+    font-weight: 750;
+}
+
+.discover-page .insight-stats strong {
+    color: var(--va-blue);
+    font-size: 20px;
+}
+
+.discover-page .insight-stats span {
+    color: var(--va-muted);
+    font-size: 9px;
+}
+
+.discover-page .insight-stats div + div {
+    border-left-color: #d8e1ee;
+}
+
+.discover-page .insight-help {
+    margin: 0;
+    padding: 2px 4px 0;
+    text-align: center;
+}
+
+@media (max-width: 1000px) {
+    .discover-page .ranking-sidebar {
+        position: static;
+        margin-top: 18px;
+    }
+}
+
+@media (max-width: 480px) {
+    .discover-page .ranking-box {
+        padding: 14px;
+    }
+
+    .discover-page .insight-section {
+        padding: 12px;
+    }
+}
+
+
+/* Compact Discover attachment gallery: keep media tiles grouped and prevent them
+   from expanding to the full proposal-card width. */
+.discover-page .leaderboard-card .attachments {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    width: min(100%, 320px);
+    gap: 8px;
+    align-items: stretch;
+    margin: 14px 0 0;
+    padding: 0;
+}
+
+.discover-page .leaderboard-card .attachment-thumb {
+    width: 100%;
+    min-width: 0;
+    height: 90px;
+    margin: 0;
+    border: 1px solid #dfe5ed;
+    border-radius: 8px;
+    background: #f8fafc;
+    box-shadow: none;
+}
+
+.discover-page .leaderboard-card .attachment-thumb img,
+.discover-page .leaderboard-card .attachment-thumb video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 7px !important;
+}
+
+.discover-page .leaderboard-card .thumb-placeholder {
+    display: grid;
+    place-items: center;
+    width: 100%;
+    height: 100%;
+    color: #9aa8bb;
+}
+
+.discover-page .leaderboard-card .thumb-placeholder svg {
+    width: 25px;
+    height: 25px;
+}
+
+@media (max-width: 480px) {
+    .discover-page .leaderboard-card .attachments {
+        width: 100%;
+        gap: 7px;
+    }
+
+    .discover-page .leaderboard-card .attachment-thumb {
+        height: 82px;
+    }
+}
+
+
+/* Final attachment/rating separation for Discover proposal cards. */
+.discover-page .leaderboard-card .attachments {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 150px)) !important;
+    width: fit-content !important;
+    max-width: 100%;
+    gap: 8px !important;
+    margin: 14px 0 0 !important;
+}
+
+.discover-page .leaderboard-card .attachment-thumb {
+    width: 150px !important;
+    height: 90px !important;
+    margin: 0 !important;
+}
+
+.discover-page .leaderboard-card .attachments + .rating-widget {
+    margin-top: 16px !important;
+}
+
+@media (max-width: 480px) {
+    .discover-page .leaderboard-card .attachments {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        width: 100% !important;
+    }
+
+    .discover-page .leaderboard-card .attachment-thumb {
+        width: 100% !important;
+        height: 82px !important;
+    }
+
+    .discover-page .leaderboard-card .attachments + .rating-widget {
+        margin-top: 14px !important;
+    }
+}
+
+
+/* Apply the same compact media treatment to the primary Citizen Recommendations cards. */
+.discover-page .proposal-card .attachments {
+    display: grid !important;
+    grid-template-columns: repeat(2, minmax(0, 150px)) !important;
+    width: fit-content !important;
+    max-width: 100%;
+    gap: 8px !important;
+    align-items: stretch;
+    margin: 14px 0 0 !important;
+    padding: 0;
+}
+
+.discover-page .proposal-card .attachment-thumb {
+    width: 150px !important;
+    height: 90px !important;
+    min-width: 0;
+    margin: 0 !important;
+    border: 1px solid #dfe5ed;
+    border-radius: 8px;
+    background: #f8fafc;
+    box-shadow: none;
+}
+
+.discover-page .proposal-card .attachments + .rating-widget {
+    margin-top: 16px !important;
+}
+
+@media (max-width: 480px) {
+    .discover-page .proposal-card .attachments {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+        width: 100% !important;
+        gap: 7px !important;
+    }
+
+    .discover-page .proposal-card .attachment-thumb {
+        width: 100% !important;
+        height: 82px !important;
+    }
+
+    .discover-page .proposal-card .attachments + .rating-widget {
+        margin-top: 14px !important;
+    }
+}

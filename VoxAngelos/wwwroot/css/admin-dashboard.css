@@ -11,6 +11,10 @@
 .admin-summary-grid--two { grid-template-columns:repeat(2,minmax(0,1fr)); }
 .admin-summary-card { padding:18px; border:1px solid var(--admin-line); border-radius:10px; background:var(--admin-surface); }
 .admin-summary-card--attention { border-top:3px solid var(--admin-red); }
+.admin-summary-card--success,
+.admin-summary-grid--two .admin-summary-card:nth-child(2) { border-top:3px solid var(--admin-green); }
+.admin-summary-card--success strong,
+.admin-summary-grid--two .admin-summary-card:nth-child(2) strong { color:var(--admin-green); }
 .admin-summary-label { display:block; color:var(--admin-muted); font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
 .admin-summary-card strong { display:block; margin:9px 0 4px; color:var(--admin-ink); font-size:29px; line-height:1; letter-spacing:-.04em; }
 .admin-summary-card--attention strong { color:var(--admin-red); }

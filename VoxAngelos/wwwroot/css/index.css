@@ -971,41 +971,32 @@ body {
 @media (max-width:768px) { .hero-copy h1 { font-size:clamp(28px,8vw,38px); } }
 
 
-/* Render the hero photograph against the viewport rather than an inherited content width. */
+/* Keep the hero and its photograph on the same content-width coordinate system. */
 html,
 body {
     width: 100%;
-    min-width: 100%;
+    min-width: 0;
 }
 
 .stage {
-    width: 100vw !important;
+    width: 100% !important;
     max-width: none;
     align-self: stretch;
 }
 
 .stage > .bg {
-    right: auto;
-    left: 50%;
-    width: 100vw !important;
-    transform: translateX(-50%);
+    right: 0;
+    left: 0;
+    width: 100% !important;
+    transform: none;
+    background-color: transparent;
 }
 
 
-/* Keep any viewport area behind the hero image visually continuous instead of exposing the page background. */
+/* Do not paint a second, differently cropped copy of the hero photo behind the stage. */
 body {
     background-color: #eaecf5;
-    background-image: linear-gradient(rgba(234, 236, 245, 0.6), rgba(234, 236, 245, 0.6)), url('/assets/Angeles.jpg');
-    background-position: 18% 34%;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-}
-
-
-/* Let the continuous body photo show through wherever the faded hero image is transparent. */
-.stage > .bg {
-    background-color: transparent;
+    background-image: none;
 }
 
 
@@ -1175,8 +1166,7 @@ body {
 }
 
 
-/* 100vw includes the scrollbar width, which pushed the hero past the right edge and broke the centering.
-   Size the hero and its background layer to the actual content width instead. */
+/* Final width safeguard: keep the hero aligned to the document content box. */
 .stage {
     width: 100% !important;
 }
