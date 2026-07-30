@@ -111,6 +111,35 @@ namespace VoxAngelos.Pages.User
 
             Recommendations = recs.Select(r => MapToViewModel(r, myRatings, CurrentUserId)).ToList();
 
+            var isDevelopment = HttpContext.RequestServices
+                .GetService(typeof(Microsoft.AspNetCore.Hosting.IWebHostEnvironment))
+                is Microsoft.AspNetCore.Hosting.IWebHostEnvironment environment && environment.IsDevelopment();
+
+            if (isDevelopment)
+            {
+                Recommendations.Insert(0, new RecommendationCardViewModel
+                {
+                    Id = -1,
+                    CitizenName = "Development preview",
+                    Category = "Infrastructure",
+                    AssignedOffice = "CEO",
+                    Title = "Attachment layout preview (6 files)",
+                    Description = "Development-only mock recommendation for capturing the three-or-more attachment layout.",
+                    ApprovedAt = DateTime.UtcNow,
+                    IsOwnRecommendation = true,
+                    AttachmentPaths = new List<string>
+                    {
+                        "/assets/Angeles.jpg",
+                        "/assets/Angeles.jpg",
+                        "/assets/Angeles.jpg",
+                        "/assets/Angeles.jpg",
+                        "/assets/Angeles.jpg",
+                        "/assets/Angeles.jpg"
+                    },
+                    AttachmentTypes = new List<string> { "image", "image", "image", "image", "image", "image" }
+                });
+            }
+
             var topRated = await _ratingService.GetTopRecommendationsAsync(forLgu: false);
             TopRated = topRated.Select(r => MapToViewModel(r, myRatings, CurrentUserId)).ToList();
         }
